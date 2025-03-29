@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h1>Admin Panel</h1>
+<p>Welcome, {{ user.username }}!</p>
+
+<h2>Participants</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for participant in participants %}
+        <tr>
+            <td>{{ participant.username }}</td>
+            <td>
+                <a href="{% url 'export_user_answers' participant.id %}" class="export-button">Export Answers</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

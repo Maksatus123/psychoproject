@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Site</title>
+    <!-- Load the static tag -->
+  
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            {% if user.is_authenticated %}
+                {% if user.userprofile.is_admin %}
+                    <a href="{% url 'admin_panel' %}">Admin Panel</a>
+                {% endif %}
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

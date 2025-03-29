@@ -1,0 +1,216 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #6200ea;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Login Page Styles */
+.login-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.export-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.export-button:hover {
+    background-color: #45a049;
+}
+
+.login-form input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #3700b3;
+}
+
+/* Questions List Styles */
+.questions-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.question {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question h3 {
+    margin-top: 0;
+}
+
+.question button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.question button[value="true"] {
+    background-color: #4caf50;
+    color: white;
+}
+
+.question button[value="false"] {
+    background-color: #f44336;
+    color: white;
+}
+
+.question button:hover {
+    opacity: 0.9;
+}
+
+
+
+/* Pagination Styles */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    color: #6200ea;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a:hover {
+    background-color: #6200ea;
+    color: white;
+    border: 1px solid #6200ea;
+}
+
+.pagination .current {
+    padding: 8px 16px;
+    background-color: #6200ea;
+    color: white;
+    border: 1px solid #6200ea;
+    margin: 0 4px;
+}
+
+/* Page Form Styles */
+.page-form {
+    margin-top: 10px;
+}
+
+.page-form label {
+    margin-right: 10px;
+}
+
+.page-form input {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.page-form button {
+    padding: 5px 10px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.page-form button:hover {
+    background-color: #3700b3;
+}
+
+/* Admin Panel Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #6200ea;
+    color: white;
+}
+
+.export-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.export-button:hover {
+    background-color: #45a049;
+}
