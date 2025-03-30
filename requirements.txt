@@ -5,3 +5,4 @@ openpyxl==3.1.5
 psycopg2-binary==2.9.10
 sqlparse==0.5.3
 tzdata==2025.1
+dj_database_url == 0.5.0

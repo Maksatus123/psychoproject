@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -77,16 +78,38 @@ WSGI_APPLICATION = 'psychoproject.wsgi.application'
 
 
 ALLOWED_HOSTS = ['psytests.kz', '185.129.51.85']
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
-        'HOST': 'db',  # имя сервиса в docker-compose
-        'PORT': '5432',
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': 'admin',
+#         'HOST': 'db',  # имя сервиса в docker-compose
+#         'PORT': '5432',
+#     }
+# }
+
+
+if os.getenv('DJANGO_ENV') == 'development':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'PASSWORD': 'yourpassword',
+            'HOST': 'db',  # Имя сервиса в docker-compose
+            'PORT': '5432',
+        }
     }
+
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600
+    )
 }
+
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'web']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
