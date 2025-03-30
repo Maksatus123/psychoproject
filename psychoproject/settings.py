@@ -103,10 +103,13 @@ if os.getenv('DJANGO_ENV') == 'development':
     }
 
 
+db_url = os.getenv('DATABASE_URL', '').replace('<port>', '5432')
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=600
+    'default': dj_database_url.parse(
+        db_url, 
+        conn_max_age=600,
+        ssl_require=True
     )
 }
 
