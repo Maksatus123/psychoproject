@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'psychoproject.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-DEBUG = False
+
 ALLOWED_HOSTS = ['psytests.kz', '185.129.51.85']
 DATABASES = {
     'default': {
@@ -83,10 +83,12 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'admin',
-        'HOST': 'localhost',
+        'HOST': 'db',  # имя сервиса в docker-compose
         'PORT': '5432',
     }
 }
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'web']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Password validation
@@ -139,6 +141,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-SECURE_SSL_REDIRECT = True  # After setting up SSL
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True  # After setting up SSL
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
