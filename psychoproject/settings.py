@@ -101,13 +101,29 @@ ALLOWED_HOSTS = [
     '127.0.0.1'
 ]
 # База данных
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=600,
-        ssl_require=True  # Обязательно для Render
-    )
-}
+if os.getenv('RENDER', '').lower() == 'true':
+    # Конфигурация для Render.com
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.getenv('DATABASE_URL'),
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }
+    DEBUG = False  # Для production
+else:
+    # Локальная конфигурация (для скриптов и разработки)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'PASSWORD': 'admin',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+    DEBUG = True
 
 # Статические файлы (если нужны)
 STATIC_URL = '/static/'
