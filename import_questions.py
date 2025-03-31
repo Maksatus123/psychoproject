@@ -24,7 +24,7 @@ def import_questions():
             try:
                 # Парсим строку (ваш формат: "1. Текст вопроса;1;1;")
                 question_text = row[0].split('.', 1)[1].strip()  # Удаляем номер перед точкой
-                num = int(row[0].split('.', 1)[0])  # Номер из начала строки
+                num = int(row[0].strip('\ufeff').split('.')[0])  # Номер из начала строки
                 
                 # Обрабатываем значения y/n (могут быть пустыми)
                 y_value = float(row[1]) if row[1] else 0.0
