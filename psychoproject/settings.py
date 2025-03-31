@@ -77,46 +77,31 @@ WSGI_APPLICATION = 'psychoproject.wsgi.application'
 
 
 
-ALLOWED_HOSTS = ['psytests.kz', '185.129.51.85']
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'PASSWORD': 'admin',
-#         'HOST': 'db',  # имя сервиса в docker-compose
-#         'PORT': '5432',
-#     }
-# }
+# ALLOWED_HOSTS = ['psytests.kz', '185.129.51.85']
+# # DATABASES = {
+# #     'default': {
+# #         'ENGINE': 'django.db.backends.postgresql',
+# #         'NAME': 'postgres',
+# #         'USER': 'postgres',
+# #         'PASSWORD': 'admin',
+# #         'HOST': 'db',  # имя сервиса в docker-compose
+# #         'PORT': '5432',
+# #     }
+# # }
 
-
-if os.getenv('DJANGO_ENV') == 'development':
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'postgres',
-            'USER': 'postgres',
-            'PASSWORD': 'yourpassword',
-            'HOST': 'db',  # Имя сервиса в docker-compose
-            'PORT': '5432',
-        }
-    }
-
-
-db_url = os.getenv('DATABASE_URL', '').replace('<port>', '5432')
-
+ALLOWED_HOSTS = ['psychoproject.onrender.com', 'localhost']
+# База данных
 DATABASES = {
-    'default': dj_database_url.parse(
-        db_url, 
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
         conn_max_age=600,
-        ssl_require=True
+        ssl_require=True  # Обязательно для Render
     )
 }
 
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'web']
+# Статические файлы (если нужны)
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -150,10 +135,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-
-# During development, Django will look for static files in each app's static directory
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
