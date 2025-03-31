@@ -159,11 +159,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-
 # # During development, Django will look for static files in each app's static directory
 # STATICFILES_DIRS = [
 #     BASE_DIR / "main/static",  # Ensure this points to the correct directory
