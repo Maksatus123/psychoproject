@@ -51,6 +51,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://psychoproject.onrender.com',
+    # Добавьте другие домены, если нужно
+]
+
+
 ROOT_URLCONF = 'psychoproject.urls'
 
 TEMPLATES = [
@@ -89,7 +95,11 @@ WSGI_APPLICATION = 'psychoproject.wsgi.application'
 # #     }
 # # }
 
-ALLOWED_HOSTS = ['psychoproject.onrender.com', 'localhost']
+ALLOWED_HOSTS = [
+    'psychoproject.onrender.com',
+    'localhost',
+    '127.0.0.1'
+]
 # База данных
 DATABASES = {
     'default': dj_database_url.config(
