@@ -127,7 +127,10 @@ else:
 
 # Статические файлы (если нужны)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Для production (Render.com)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'main/static'),  # Путь к статике в development
+]
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
